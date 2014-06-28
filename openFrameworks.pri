@@ -1,0 +1,89 @@
+INCLUDEPATH += D:/Dev/Libs/openFrameworks/0.8.1/libs/openFrameworks
+
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/assimp/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/cairo/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/cairo/include/cairo
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/cairo/include/libpng15
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/cairo/include/pixman-1
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/fmodex/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/FreeImage/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/freetype/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/glew/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/glfw/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/glu/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/glut/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/types
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/sound
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/video
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/3d
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/math
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/events
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/utils
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/gl
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/app
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/graphics
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks/communication
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openssl/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/poco/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/quicktime/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/rtAudio/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/tess2/include
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/videoInput/include
+
+LIBS += -l$$OPEN_FRAMEWORKS/libs/cairo/lib/vs/cairo-static
+LIBS += -l$$OPEN_FRAMEWORKS/libs/cairo/lib/vs/pixman-1
+LIBS += -l$$OPEN_FRAMEWORKS/libs/fmodex/lib/vs/fmodex_vc
+#LIBS += -l$$OPEN_FRAMEWORKS/libs/fmodex/lib/vs/fmodexL_vc
+LIBS += -l$$OPEN_FRAMEWORKS/libs/FreeImage/lib/vs/FreeImage
+LIBS += -l$$OPEN_FRAMEWORKS/libs/freetype/lib/vs/libfreetype
+LIBS += -l$$OPEN_FRAMEWORKS/libs/glew/lib/vs/glew32s
+LIBS += -l$$OPEN_FRAMEWORKS/libs/glfw/lib/vs/glfw3
+LIBS += -l$$OPEN_FRAMEWORKS/libs/glu/lib/vs/glu32
+LIBS += -l$$OPEN_FRAMEWORKS/libs/glut/lib/vs/glut32
+Debug:LIBS += -l$$OPEN_FRAMEWORKS/libs/openFrameworksCompiled/lib/vs/openframeworksLib_debug
+Release:LIBS += -l$$OPEN_FRAMEWORKS/libs/openFrameworksCompiled/lib/vs/openframeworksLib
+LIBS += -l$$OPEN_FRAMEWORKS/libs/openssl/lib/vs/libeay32MD
+LIBS += -l$$OPEN_FRAMEWORKS/libs/openssl/lib/vs/ssleay32MD
+Debug:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoCryptomdd
+Debug:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoFoundationmdd
+Debug:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoNetmdd
+Debug:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoNetSSLmdd
+Debug:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoUtilmdd
+Debug:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoXMLmdd
+Release:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoCryptomd
+Release:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoFoundationmd
+Release:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoNetmd
+Release:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoNetSSLmd
+Release:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoUtilmd
+Release:LIBS += -l$$OPEN_FRAMEWORKS/libs/poco/lib/vs/PocoXMLmd
+LIBS += -l$$OPEN_FRAMEWORKS/libs/quicktime/lib/vs/qtmlClient
+LIBS += -l$$OPEN_FRAMEWORKS/libs/quicktime/lib/vs/QTSClient
+LIBS += -l$$OPEN_FRAMEWORKS/libs/quicktime/lib/vs/Rave
+LIBS += -l$$OPEN_FRAMEWORKS/libs/rtAudio/lib/vs/dsound
+Debug:LIBS += -l$$OPEN_FRAMEWORKS/libs/rtAudio/lib/vs/rtAudioD
+Release:LIBS += -l$$OPEN_FRAMEWORKS/libs/rtAudio/lib/vs/rtAudio
+LIBS += -l$$OPEN_FRAMEWORKS/libs/tess2/lib/vs/tess2
+Debug:LIBS += -l$$OPEN_FRAMEWORKS/libs/videoInput/lib/vs/videoInputD
+Release:LIBS += -l$$OPEN_FRAMEWORKS/libs/videoInput/lib/vs/videoInput
+
+LIBS += -lAdvapi32
+LIBS += -lCrypt32
+LIBS += -lGdi32
+LIBS += -lMsimg32
+LIBS += -lShell32
+LIBS += -lUser32
+
+Debug:QMAKE_LFLAGS += /NODEFAULTLIB:PocoFoundationd.lib
+Debug:QMAKE_LFLAGS += /NODEFAULTLIB:PocoXMLd.lib
+Release:QMAKE_LFLAGS += /NODEFAULTLIB:PocoFoundation.lib
+QMAKE_LFLAGS += /NODEFAULTLIB:PocoXML.lib
+
+# Copy dlls
+Debug: OPEN_FRAMEWORKS_DESTDIR = $$OUT_PWD/debug
+Release: OPEN_FRAMEWORKS_DESTDIR = $$OUT_PWD/release
+
+OPEN_FRAMEWORKS_LIBS.path = $$OPEN_FRAMEWORKS_DESTDIR
+OPEN_FRAMEWORKS_LIBS.files += $$files($$OPEN_FRAMEWORKS/export/vs/*.dll)
+
+INSTALLS += OPEN_FRAMEWORKS_LIBS
