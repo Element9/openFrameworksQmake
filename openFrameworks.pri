@@ -1,4 +1,4 @@
-INCLUDEPATH += D:/Dev/Libs/openFrameworks/0.8.1/libs/openFrameworks
+INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/openFrameworks
 
 INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/assimp/include
 INCLUDEPATH += $$OPEN_FRAMEWORKS/libs/cairo/include
